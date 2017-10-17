@@ -32,6 +32,9 @@ public class BoxBall
     public void bounce()
     {
         int ground = 400;   // position of the ground line
+        int ceiling = 0;    // position of ceiling line
+        // position of left line
+        // position of right line
 
         myCanvas.setVisible(true);
 
@@ -43,21 +46,14 @@ public class BoxBall
         
         
         // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
+        BouncingBall ball = new BouncingBall(250, 250, 20, Color.BLUE, ground, 0, myCanvas);
         ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
 
         // make them bounce
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
             ball.move();
-            ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
         }
     }
 }

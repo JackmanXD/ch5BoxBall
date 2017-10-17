@@ -24,6 +24,7 @@ public class BouncingBall
     private int xPosition;
     private int yPosition;
     private final int groundPosition;      // y position of ground
+    private final int ceilingPos;          // y position of ceiling
     private Canvas canvas;
     private int ySpeed = 5;                // initial downward speed
     private int xSpeed = 5;                // initial sideways speed
@@ -39,13 +40,14 @@ public class BouncingBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+                        int groundPos, int cPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
         color = ballColor;
         diameter = ballDiameter;
         groundPosition = groundPos;
+        ceilingPos = cPos;
         canvas = drawingCanvas;
     }
 
@@ -68,29 +70,6 @@ public class BouncingBall
 
     /**
      * Move this ball according to its position and speed and redraw.
-     
-    public void move()
-    {
-        // remove from canvas at the current position
-        erase();
-            
-        // compute new position
-        ySpeed += GRAVITY;
-        yPosition += ySpeed;
-        xPosition +=2;
-
-        // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
-            yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed + ballDegradation; 
-        }
-
-        // draw again at new position
-        draw();
-    }    
-        **/
-    /**
-     * Move this ball according to its position and speed and redraw.
      **/
     public void move()
     {
@@ -106,15 +85,18 @@ public class BouncingBall
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed;
         }
-        if(xPosition >= (groundPosition - diameter) && xSpeed > 0){
-            xPosition = (int)(groundPosition - diameter);
-            xSpeed = -xSpeed;
+        // check if it has hit the ceiling
+        if(xPosition <= (ceilingPos - diameter) && xSpeed > 0){
+            xPosition = (int)(ceilingPos - diameter);
+            xSpeed = +xSpeed;
         }
-
+        // check if it has hit the left wall
+        
+        // check if it has hit the right wall
+        
         // draw again at new position
         draw();
     }    
-    
     
     /**
      * return the horizontal position of this ball
