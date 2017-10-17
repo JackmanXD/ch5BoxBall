@@ -25,6 +25,8 @@ public class BouncingBall
     private int yPosition;
     private final int groundPosition;      // y position of ground
     private final int ceilingPos;          // y position of ceiling
+    private final int rightPos;            // x position of left wall
+    private final int leftPos;             // x position of right wall
     private Canvas canvas;
     private int ySpeed = 5;                // initial downward speed
     private int xSpeed = 5;                // initial sideways speed
@@ -40,7 +42,7 @@ public class BouncingBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, int cPos, Canvas drawingCanvas)
+                        int groundPos, int cPos, int rPos, int lPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -48,6 +50,8 @@ public class BouncingBall
         diameter = ballDiameter;
         groundPosition = groundPos;
         ceilingPos = cPos;
+        rightPos = rPos;
+        leftPos = lPos;
         canvas = drawingCanvas;
     }
 
@@ -81,18 +85,25 @@ public class BouncingBall
         xPosition += xSpeed;
 
         // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
+        if(yPosition >= (groundPosition - diameter)) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed;
         }
         // check if it has hit the ceiling
-        if(xPosition <= (ceilingPos - diameter) && xSpeed > 0){
-            xPosition = (int)(ceilingPos - diameter);
-            xSpeed = +xSpeed;
+        if(yPosition <= (ceilingPos - diameter)){
+            yPosition = (int)(ceilingPos - diameter);
+            ySpeed = +ySpeed;
         }
         // check if it has hit the left wall
-        
+        if(xPosition <= (leftPos - diameter)){
+            xPosition = (int)(leftPos - diameter);
+            xSpeed = -xSpeed;
+        }
         // check if it has hit the right wall
+        
+        // compute new position
+        //yPosition += ySpeed;
+        //xPosition += xSpeed;
         
         // draw again at new position
         draw();

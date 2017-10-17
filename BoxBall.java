@@ -33,20 +33,16 @@ public class BoxBall
     {
         int ground = 400;   // position of the ground line
         int ceiling = 0;    // position of ceiling line
-        // position of left line
+        int left = 550;    // position of left line
         // position of right line
 
         myCanvas.setVisible(true);
 
-        // draw the ground
-        myCanvas.drawLine(50, ground, 550, ground); //bottom
-        myCanvas.drawLine(50, 0, 550, 0); //top
-        myCanvas.drawLine(50, 0, 50, ground); //left
-        myCanvas.drawLine(550, 0, 550, ground);//right
+
         
         
         // crate and show the balls
-        BouncingBall ball = new BouncingBall(250, 250, 20, Color.BLUE, ground, 0, myCanvas);
+        BouncingBall ball = new BouncingBall(250, 250, 20, Color.BLUE, ground, 0, 0, 0, myCanvas);
         ball.draw();
 
         // make them bounce
@@ -54,6 +50,11 @@ public class BoxBall
         while(!finished) {
             myCanvas.wait(50);           // small delay
             ball.move();
+            // draw the ground
+            myCanvas.drawLine(50, ground, 550, ground); //bottom
+            myCanvas.drawLine(50, 0, 550, 0); //top
+            myCanvas.drawLine(50, 0, 50, ground); //left
+            myCanvas.drawLine(550, 0, 550, ground);//right
         }
     }
 }
