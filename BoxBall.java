@@ -1,14 +1,17 @@
 import java.awt.Color;
 
 /**
- * Class BallDemo - a short demonstration showing animation with the 
- * Canvas class. 
+ * Class BoxBall - a short animation with random balls presented
+ * with the Canvas class. 
  *
  * @author Bill Crosbie
  * @version 2015-March-BB
  *
  * @author Michael Kölling and David J. Barnes
  * @version 2011.07.31
+ * 
+ * @author Jack Henry Protopapa
+ * @version 2017.October.17
  */
 
 public class BoxBall   
@@ -20,7 +23,7 @@ public class BoxBall
      */
     public BoxBall()
     {
-        myCanvas = new Canvas("Ball Demo", 600, 500);
+        myCanvas = new Canvas("Box Ball", 600, 500);
     }
 
     /**
@@ -39,8 +42,6 @@ public class BoxBall
         myCanvas.drawLine(550, 0, 550, ground);//right
         
         
-        
-
         // crate and show the balls
         BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
         ball.draw();

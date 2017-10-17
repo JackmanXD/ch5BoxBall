@@ -18,9 +18,6 @@ import java.awt.geom.*;
 
 public class BouncingBall
 {
-    private static final int GRAVITY = 3;  // effect of gravity
-
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -28,8 +25,8 @@ public class BouncingBall
     private int yPosition;
     private final int groundPosition;      // y position of ground
     private Canvas canvas;
-    private int ySpeed = 1;                // initial downward speed
-    private int xSpeed = 1;                // initial sideways speed
+    private int ySpeed = 5;                // initial downward speed
+    private int xSpeed = 5;                // initial sideways speed
 
     /**
      * Constructor for objects of class BouncingBall
@@ -107,7 +104,11 @@ public class BouncingBall
         // check if it has hit the ground
         if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
             yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed + ballDegradation; 
+            ySpeed = -ySpeed;
+        }
+        if(xPosition >= (groundPosition - diameter) && xSpeed > 0){
+            xPosition = (int)(groundPosition - diameter);
+            xSpeed = -xSpeed;
         }
 
         // draw again at new position
