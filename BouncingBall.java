@@ -29,6 +29,7 @@ public class BouncingBall
     private final int groundPosition;      // y position of ground
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
+    private int xSpeed = 1;                // initial sideways speed
 
     /**
      * Constructor for objects of class BouncingBall
@@ -101,7 +102,7 @@ public class BouncingBall
             
         // compute new position
         yPosition += ySpeed;
-        xPosition +=2;
+        xPosition += xSpeed;
 
         // check if it has hit the ground
         if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {

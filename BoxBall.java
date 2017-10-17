@@ -35,6 +35,8 @@ public class BoxBall
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground); //bottom
         myCanvas.drawLine(50, 0, 550, 0); //top
+        myCanvas.drawLine(50, 0, 50, ground); //left
+        myCanvas.drawLine(550, 0, 550, ground);//right
         
         
         
