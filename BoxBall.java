@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.geom.*;
 
 /**
  * Class BoxBall - a short animation with random balls presented
@@ -32,9 +33,9 @@ public class BoxBall
     public void bounce()
     {
         int ground = 400;   // position of the ground line
-        int ceiling = 0;    // position of ceiling line
-        int left = 550;    // position of left line
-        int right = 0;    // position of right line
+        int ceiling = 50;    // position of ceiling line
+        int left = 0;    // position of left line
+        int right = 550;    // position of right line
 
         myCanvas.setVisible(true);
 
@@ -50,7 +51,7 @@ public class BoxBall
         while(!finished) {
             myCanvas.wait(50);           // small delay
             ball.move();
-            // draw the ground
+            // draw the walls
             myCanvas.drawLine(50, ground, 550, ground); //bottom
             myCanvas.drawLine(50, 0, 550, 0); //top
             myCanvas.drawLine(50, 0, 50, ground); //left
