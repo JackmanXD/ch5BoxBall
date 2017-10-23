@@ -100,7 +100,10 @@ public class BouncingBall
             xSpeed = -xSpeed;
         }
         // check if it has hit the right wall
-        
+        if(xPosition <=(rightPos - diameter)){
+            xPosition = (int)(rightPos - diameter);
+            xSpeed = -xSpeed;
+        }
         // compute new position
         //yPosition += ySpeed;
         //xPosition += xSpeed;

@@ -34,7 +34,7 @@ public class BoxBall
         int ground = 400;   // position of the ground line
         int ceiling = 0;    // position of ceiling line
         int left = 550;    // position of left line
-        // position of right line
+        int right = 0;    // position of right line
 
         myCanvas.setVisible(true);
 
