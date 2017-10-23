@@ -28,8 +28,8 @@ public class BouncingBall
     private final int rightPos;            // x position of left wall
     private final int leftPos;             // x position of right wall
     private Canvas canvas;
-    private int ySpeed = -5;                // initial downward speed
-    private int xSpeed = -1;                // initial sideways speed
+    private int ySpeed = 5;                // initial downward speed
+    private int xSpeed = -4;                // initial sideways speed
 
     /**
      * Constructor for objects of class BouncingBall
@@ -100,8 +100,8 @@ public class BouncingBall
             xSpeed = +xSpeed;
         }
         // check if it has hit the right wall
-        if(xPosition <=(rightPos - diameter)){
-            xPosition = (int)(rightPos - diameter);
+        if(xPosition <=(leftPos - diameter)){
+            xPosition = (int)(leftPos - diameter);
             xSpeed = -xSpeed;
         }
         

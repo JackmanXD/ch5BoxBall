@@ -32,16 +32,13 @@ public class BoxBall
      */
     public void bounce()
     {
-        int ground = 400;   // position of the ground line
-        int ceiling = 50;    // position of ceiling line
-        int left = 0;    // position of left line
-        int right = 550;    // position of right line
+        int ground = 400;   // y position of the ground line
+        int ceiling = 0;    // y position of ceiling line
+        int left = 0;    // y position of left line
+        int right = -400;    // y position of right line
 
         myCanvas.setVisible(true);
 
-
-        
-        
         // crate and show the balls
         BouncingBall ball = new BouncingBall(250, 250, 20, Color.BLUE, ground, 0, 0, 0, myCanvas);
         ball.draw();
@@ -53,9 +50,9 @@ public class BoxBall
             ball.move();
             // draw the walls
             myCanvas.drawLine(50, ground, 550, ground); //bottom
-            myCanvas.drawLine(50, 0, 550, 0); //top
-            myCanvas.drawLine(50, 0, 50, ground); //left
-            myCanvas.drawLine(550, 0, 550, ground);//right
+            myCanvas.drawLine(50, ceiling, 550, ceiling); //top
+            myCanvas.drawLine(50, left, 50, ground); //left wall
+            myCanvas.drawLine(550, right, 550, ground);//right wall
         }
     }
 }
