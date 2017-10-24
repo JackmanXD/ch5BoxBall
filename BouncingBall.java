@@ -90,18 +90,18 @@ public class BouncingBall
             ySpeed = -ySpeed;
         }
         // check if it has hit the ceiling
-        if(yPosition <= (ceilingPos - diameter)){
-            yPosition = (int)(ceilingPos - diameter);
+        if(yPosition <= (ceilingPos)){
+            yPosition = (int)(ceilingPos);
             ySpeed = -ySpeed;
         }
         // check if it has hit the left wall
-        if(xPosition <= (leftPos - diameter)){
-            xPosition = (int)(leftPos - diameter);
-            xSpeed = +xSpeed;
+        if(xPosition <= (leftPos)){
+            xPosition = (int)(leftPos);
+            xSpeed = -xSpeed;
         }
         // check if it has hit the right wall
-        if(xPosition <=(leftPos - diameter)){
-            xPosition = (int)(leftPos - diameter);
+        if(xPosition >=(rightPos - diameter)){
+            xPosition = (int)(rightPos - diameter);
             xSpeed = -xSpeed;
         }
         
